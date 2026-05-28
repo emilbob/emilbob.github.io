@@ -25,6 +25,10 @@
   ::-webkit-scrollbar { display: none; }
 }
 
+@media (max-width: 767px) {
+  .grain, .scanline { display: none; }
+}
+
 /* ─── Grain overlay ─────────────────────────────────── */
 .grain {
   position: fixed;

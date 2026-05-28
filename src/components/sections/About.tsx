@@ -204,11 +204,19 @@ export default function About() {
           {/* Left col */}
           <div className="lg:col-span-5 flex flex-col gap-12">
             {/* Profile picture — breaks into particles on hover */}
-            <Suspense
-              fallback={<div className="w-full aspect-square bg-carbon" />}
-            >
-              <ProfileParticles className="w-full" />
-            </Suspense>
+            {window.innerWidth >= 768 ? (
+              <Suspense
+                fallback={<div className="w-full aspect-square bg-carbon" />}
+              >
+                <ProfileParticles className="w-full" />
+              </Suspense>
+            ) : (
+              <img
+                src="/profilna_bw.png"
+                alt="Emil Bob"
+                className="w-full object-cover"
+              />
+            )}
 
             {/* Stats */}
             <div

@@ -106,10 +106,12 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col justify-between px-gutter pt-24 pb-36 overflow-hidden"
     >
-      {/* WebGL noise */}
-      <Suspense fallback={<div className="absolute inset-0 bg-void" />}>
-        <NoiseBackground />
-      </Suspense>
+      {/* WebGL noise — desktop only */}
+      {window.innerWidth >= 768 && (
+        <Suspense fallback={<div className="absolute inset-0 bg-void" />}>
+          <NoiseBackground />
+        </Suspense>
+      )}
 
       {/* Overlay gradient so content stays readable */}
       <div className="absolute inset-0 bg-gradient-to-b from-void/10 via-transparent to-void/60 pointer-events-none" />
