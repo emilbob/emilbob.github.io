@@ -8,10 +8,11 @@ interface PreviewState {
 }
 
 export default function Cursor() {
-  const dotRef   = useRef<HTMLDivElement>(null)
-  const ringRef  = useRef<HTMLDivElement>(null)
-  const coordRef = useRef<HTMLDivElement>(null)
-  const previewRef = useRef<HTMLDivElement>(null)
+  const dotRef      = useRef<HTMLDivElement>(null)
+  const ringRef     = useRef<HTMLDivElement>(null)
+  const coordRef    = useRef<HTMLDivElement>(null)
+  const previewRef  = useRef<HTMLDivElement>(null)
+  const wooshRef    = useRef<HTMLDivElement>(null)
   const [preview, setPreview] = useState<PreviewState>({ visible: false, gradient: '', label: '' })
 
   useEffect(() => {
@@ -28,8 +29,15 @@ export default function Cursor() {
       pos.y = e.clientY
       coord.textContent = `${String(Math.round(pos.x)).padStart(4, '0')} / ${String(Math.round(pos.y)).padStart(4, '0')}`
       gsap.set(coord, { x: pos.x + 14, y: pos.y - 10 })
+      if (wooshRef.current) gsap.set(wooshRef.current, { x: pos.x + 14, y: pos.y + 8 })
     }
     window.addEventListener('mousemove', onMove)
+
+    const onFirstClick = () => {
+      if (!wooshRef.current) return
+      gsap.to(wooshRef.current, { opacity: 0, y: '-=6', duration: 0.35, ease: 'expo.out' })
+    }
+    window.addEventListener('click', onFirstClick, { once: true })
 
     const tick = () => {
       gsap.set(dot, { x: pos.x, y: pos.y })
@@ -81,6 +89,7 @@ export default function Cursor() {
 
     return () => {
       window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('click', onFirstClick)
       gsap.ticker.remove(tick)
     }
   }, [])
@@ -112,6 +121,13 @@ export default function Cursor() {
       <div ref={dotRef}  className="cursor-dot" />
       <div ref={ringRef} className="cursor-ring" />
       <div ref={coordRef} className="cursor-coords" />
+      <div
+        ref={wooshRef}
+        className="fixed top-0 left-0 z-[9997] pointer-events-none font-mono text-electric tracking-[0.2em] uppercase"
+        style={{ transform: 'translate(0, 0)', fontSize: '11px' }}
+      >
+        click for woosh
+      </div>
 
       {/* Floating project preview */}
       <div
