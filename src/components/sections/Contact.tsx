@@ -12,6 +12,7 @@ const LINKS = [
     meta: "Professional network",
   },
   { label: "GitHub", href: "https://github.com/emilbob", meta: "Open source" },
+  { label: "X / Twitter", href: "https://x.com/emilbob_", meta: "Thoughts & updates" },
   {
     label: "Medium",
     href: "https://medium.com/@emilbob03/establishing-secure-communication-with-a-substrate-node-using-rust-3611f0f26427",
