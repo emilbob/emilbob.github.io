@@ -8,6 +8,27 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     index: "001",
+    title: "ZK-STANDOFF",
+    category: "ZK · Game Theory",
+    year: "2025",
+    tag: "ZK",
+    desc: "A three-move standoff (X / Y / Z) where each player commits their move as a zero-knowledge proof — strategies stay hidden until reveal, so no one can peek or cheat and outcomes are provably fair. Repeated-game tournament engine in Rust, born at the Polkadot Blockchain Academy.",
+    stack: ["Rust", "ZK Proofs", "Game Theory", "React", "TypeScript"],
+    github: "https://github.com/emilbob/Game-theory",
+    live: "https://game-theory-tan.vercel.app/",
+  },
+  {
+    index: "002",
+    title: "AI AGENT MEMORY",
+    category: "AI · Infrastructure",
+    year: "2026",
+    tag: "AI",
+    desc: "A persistent, file-based memory system for autonomous AI coding agents — durable facts, project context, and audit trails that survive across sessions, with an index the agent loads on startup. The recall and orchestration layer that makes agents reliable instead of forgetful.",
+    stack: ["Claude Code", "AI Agents", "Persistent Memory", "Audit Trails"],
+    github: "https://github.com/emilbob/Emil-Dev-Vault",
+  },
+  {
+    index: "003",
     title: "PROOF OF ANCHOR",
     category: "ZK · Hackathon",
     year: "2025",
@@ -18,7 +39,7 @@ const PROJECTS = [
     live: "https://proofanchor.netlify.app/",
   },
   {
-    index: "002",
+    index: "004",
     title: "INFINITE DECK POKER",
     category: "Rust · Cryptography",
     year: "2026",
@@ -28,7 +49,7 @@ const PROJECTS = [
     github: "https://github.com/emilbob/Infinite-deck-poker-using-VRFs",
   },
   {
-    index: "003",
+    index: "005",
     title: "SOLANA DATA AGGREGATOR",
     category: "Rust · Blockchain",
     year: "2025",
@@ -38,7 +59,7 @@ const PROJECTS = [
     github: "https://github.com/emilbob/solana-data-aggregator",
   },
   {
-    index: "004",
+    index: "006",
     title: "SUBSTRATE HANDSHAKE",
     category: "Rust · Substrate",
     year: "2024",
@@ -48,7 +69,7 @@ const PROJECTS = [
     github: "https://github.com/emilbob/substrate_handshake",
   },
   {
-    index: "005",
+    index: "007",
     title: "CROWDFUNDING ICP",
     category: "Smart Contract · ICP",
     year: "2024",
@@ -58,7 +79,7 @@ const PROJECTS = [
     github: "https://github.com/emilbob/Crowdfunding-ICP",
   },
   {
-    index: "006",
+    index: "008",
     title: "PICASO TOKEN",
     category: "Solidity · DeFi",
     year: "2023",
@@ -66,16 +87,6 @@ const PROJECTS = [
     desc: "ERC-721 NFT contract using the Bancor bonding curve. Deposit ERC-20 tokens to mint PicasoToken NFTs; burn them to swap back — a hybrid NFT / DeFi primitive on Ethereum.",
     stack: ["Solidity", "TypeScript", "Hardhat", "Bancor", "ERC-721"],
     github: "https://github.com/emilbob/Picaso-Token",
-  },
-  {
-    index: "007",
-    title: "GAME THEORY",
-    category: "Rust · Cryptography",
-    year: "2025",
-    tag: "RUST",
-    desc: "Repeated-game tournament engine in Rust. Players submit strategies against a 3×3 payout matrix (X / Y / Z moves); strategies evolve and compete across rounds — written at the Polkadot Blockchain Academy.",
-    stack: ["Rust", "Game Theory", "PBA"],
-    github: "https://github.com/emilbob/Game-theory",
   },
 ];
 
