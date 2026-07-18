@@ -8,11 +8,11 @@ const NoiseBackground = lazy(() => import("../webgl/NoiseBackground"));
 const META = [
   { label: "STATUS", value: "AVAILABLE_REMOTE" },
   { label: "BASE", value: "NOVI SAD · RS" },
-  { label: "SPEC", value: "RUST · WEB · UX/UI" },
+  { label: "SPEC", value: "AI AGENTS · RUST · ZK" },
   { label: "BUILD", value: "v2026" },
 ];
 
-const TAGS = ["Full-Stack", "Product", "Blockchain", "Rust Dev"];
+const TAGS = ["AI Agents", "Rust", "Cryptography", "Creative Dev"];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -191,7 +191,7 @@ export default function Hero() {
         style={{ opacity: 0 }}
       >
         <p className="font-sans text-4xl text-mist max-w-lg leading-relaxed">
-          Building scalable backends, performant apps, and clean interfaces.
+          Building autonomous agent systems, and the memory and proofs that make them trustworthy.
         </p>
         <MagneticEl>
           <button

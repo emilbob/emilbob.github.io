@@ -8,6 +8,10 @@ const ProfileParticles = lazy(() => import("../webgl/ProfileParticles"));
 gsap.registerPlugin(ScrollTrigger);
 
 const SKILLS = [
+  "Claude Code",
+  "AI Agents",
+  "MCP",
+  "Noir",
   "React.js",
   "Node.js",
   "React Native",
@@ -247,11 +251,10 @@ export default function About() {
           <div className="lg:col-span-7 flex flex-col gap-12">
             <div ref={bioRef} className="space-y-4">
               <p className="font-sans text-2xl text-ivory leading-relaxed">
-                Software developer focused on modern web development, creative
-                technology, and interactive digital experiences, building
-                scalable web applications, performant backends, and visually
-                driven products using React, Node.js, Docker, Rust and modern
-                frontend technologies.
+                Engineer building autonomous AI agent systems — persistent
+                memory, orchestration, and audit layers that make agents
+                reliable. Deep background in Rust and applied cryptography, with
+                years across full-stack, blockchain, and creative web.
               </p>
               <p className="font-sans text-xl text-ivory leading-relaxed">
                 <a
