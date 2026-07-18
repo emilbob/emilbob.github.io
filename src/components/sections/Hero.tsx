@@ -104,7 +104,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between px-gutter pt-24 pb-36 overflow-hidden"
+      className="relative h-screen flex flex-col justify-between px-gutter pt-24 pb-16 overflow-hidden"
     >
       {/* WebGL noise — desktop only */}
       {window.innerWidth >= 768 && (
@@ -145,7 +145,7 @@ export default function Hero() {
             <div className="overflow-hidden">
               <div
                 ref={line1Ref}
-                className="font-mono text-display text-ivory tracking-tighter leading-none"
+                className="font-mono text-[clamp(3rem,min(12vw,13vh),13rem)] text-ivory tracking-tighter leading-none"
                 style={{ transform: "translateY(110%)" }}
               >
                 EMIL
@@ -154,7 +154,7 @@ export default function Hero() {
             <div className="overflow-hidden">
               <div
                 ref={line2Ref}
-                className="font-mono text-display text-electric tracking-tighter leading-none"
+                className="font-mono text-[clamp(3rem,min(12vw,13vh),13rem)] text-electric tracking-tighter leading-none"
                 style={{ transform: "translateY(110%)" }}
               >
                 BOB
