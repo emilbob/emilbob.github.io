@@ -1,4 +1,4 @@
-import{j as g}from"./index-CIZNB3bF.js";import{a as d}from"./vendor-BPWfBN2A.js";import{W as X,O as Y,S as Z,B as $,F as p,c as tt,b as et,C as at}from"./three-CXEGLoh5.js";import{g as m}from"./animations-iKlWqJlF.js";const w=5,ot=`
+import{j as g}from"./index-BAFUPdcy.js";import{a as d}from"./vendor-BPWfBN2A.js";import{W as X,O as Y,S as Z,B as $,F as p,c as tt,b as et,C as at}from"./three-CXEGLoh5.js";import{g as m}from"./animations-iKlWqJlF.js";const w=5,ot=`
   attribute vec3 aRandom;
   attribute float aBrightness;
   attribute float aImgAlpha;
