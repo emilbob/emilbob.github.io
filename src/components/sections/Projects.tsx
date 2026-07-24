@@ -70,6 +70,7 @@ const GROUPS = [
         desc: "Real-time Solana transaction aggregator with in-memory storage, file persistence across restarts, and a RESTful API. Query transactions by public key and date with pagination.",
         stack: ["Rust", "Solana", "REST API", "WebSocket"],
         github: "https://github.com/emilbob/solana-data-aggregator",
+        live: "https://solana-data-aggregator.onrender.com",
       },
       {
         index: "006",
