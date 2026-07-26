@@ -11,91 +11,162 @@
     />
 
     <style>
-      /* ATS-first: single column, no grid, no tables, no icons, no images,
-         system fonts, black on white, real headings in document order. */
+      /* ATS-first, but not ugly.
+         What breaks parsers is STRUCTURE, not styling: multiple columns,
+         tables, text boxes, images, icons, content in page headers/footers.
+         None of those are used here — the document is one linear column in
+         DOM order. Typography, weight, rule and colour are free, so this
+         file spends everything it can there and nothing on layout tricks.
+         Fonts stay to the metric-safe set (Georgia / Arial) so nothing
+         reflows on a machine without webfonts. */
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 10.5pt;
-        line-height: 1.42;
-        color: #000;
-        background: #fff;
-        max-width: 8.5in;
-        margin: 0 auto;
-        padding: 0.5in 0.6in;
+      :root {
+        --ink: #14161a;
+        --body: #2b2f36;
+        --muted: #565d68;
+        --rule: #c9ced6;
+        --accent: #1f3d63;
       }
+
+      body {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 10.5pt;
+        line-height: 1.5;
+        color: var(--body);
+        background: #fff;
+        max-width: 8.1in;
+        margin: 0 auto;
+        padding: 0.55in 0.7in;
+      }
+
+      /* ---------- Masthead ---------- */
 
       h1 {
-        font-size: 20pt;
-        font-weight: bold;
-        margin-bottom: 2pt;
-      }
-
-      .target-title {
-        font-size: 12pt;
-        font-weight: bold;
-        margin-bottom: 6pt;
-      }
-
-      .contact {
-        font-size: 10pt;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 27pt;
+        font-weight: normal;
+        letter-spacing: -0.015em;
+        line-height: 1.05;
+        color: var(--ink);
         margin-bottom: 4pt;
       }
 
-      h2 {
-        font-size: 11.5pt;
+      .target-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9.5pt;
         font-weight: bold;
         text-transform: uppercase;
-        letter-spacing: 0.02em;
-        margin-top: 14pt;
-        margin-bottom: 5pt;
-        padding-bottom: 2pt;
-        border-bottom: 1px solid #000;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        margin-bottom: 10pt;
+      }
+
+      .contact {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        line-height: 1.75;
+        color: var(--muted);
+        padding-top: 9pt;
+        border-top: 2px solid var(--ink);
+      }
+
+      /* ---------- Sections ---------- */
+
+      h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8.5pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        margin-top: 20pt;
+        margin-bottom: 8pt;
+        padding-bottom: 4pt;
+        border-bottom: 1px solid var(--rule);
         break-after: avoid;
       }
 
       h3 {
-        font-size: 11pt;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 12pt;
         font-weight: bold;
-        margin-top: 9pt;
+        color: var(--ink);
+        margin-top: 12pt;
         margin-bottom: 1pt;
         break-after: avoid;
       }
 
-      .job-meta {
-        font-size: 10pt;
-        font-style: italic;
-        margin-bottom: 3pt;
+      .entry:first-of-type h3,
+      .project:first-of-type h3 {
+        margin-top: 2pt;
       }
 
-      p {
+      /* Company | Location | Dates — one line, so it extracts as one line.
+         Deliberately NOT text-transform: uppercase. CSS casing is baked into
+         the PDF text, and this line carries the dates; a parser reading
+         "SEP 2021" instead of "Sep 2021" is a needless risk on the one line
+         that must parse. Headings can shout, this line cannot. */
+      .job-meta {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        font-style: normal;
+        letter-spacing: 0.03em;
+        color: var(--muted);
         margin-bottom: 5pt;
       }
 
+      p {
+        margin-bottom: 6pt;
+        max-width: 72ch;
+      }
+
       ul {
-        margin: 0 0 5pt 0;
-        padding-left: 16pt;
+        margin: 0 0 6pt 0;
+        padding-left: 13pt;
+        list-style: none;
       }
 
       li {
-        margin-bottom: 2.5pt;
+        position: relative;
+        margin-bottom: 3.5pt;
+        max-width: 72ch;
+      }
+
+      /* A real bullet glyph, drawn by CSS rather than typed into the text,
+         so it never lands in the extracted string as noise. */
+      li::before {
+        content: "";
+        position: absolute;
+        left: -13pt;
+        top: 0.52em;
+        width: 3pt;
+        height: 3pt;
+        background: var(--accent);
+        border-radius: 50%;
       }
 
       .skills-line {
-        margin-bottom: 3.5pt;
+        margin-bottom: 5pt;
+        padding-left: 0;
       }
 
       .skills-line strong {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8.75pt;
         font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink);
       }
 
       a {
-        color: #000;
+        color: var(--body);
         text-decoration: none;
       }
 
@@ -106,13 +177,26 @@
 
       @media print {
         @page {
-          margin: 0.5in 0.6in;
+          margin: 0.5in 0.62in;
           size: letter;
         }
         body {
           padding: 0;
           max-width: none;
           font-size: 10pt;
+        }
+        h1 {
+          font-size: 25pt;
+        }
+        h2 {
+          margin-top: 16pt;
+        }
+        /* Colour survives "Save as PDF"; some print paths drop backgrounds,
+           so the bullet is a border-box, never a background image. */
+        li::before {
+          background: var(--accent) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
       }
     </style>
