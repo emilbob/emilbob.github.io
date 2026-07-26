@@ -63,6 +63,27 @@ const GROUPS = [
     projects: [
       {
         index: "005",
+        title: "SOLRAIL",
+        category: "Solana · Payments",
+        year: "2026",
+        tag: "SOLANA",
+        desc: "Payment rails for Solana — Stripe-grade DX for accepting SOL and USDC on any site, through a React checkout, a script-tag widget, or Framer and Webflow embeds. Non-custodial by design: funds move wallet-to-wallet and solrail never holds money.",
+        stack: ["TypeScript", "Solana", "Solana Pay", "React", "Wallet Adapter", "pnpm Monorepo"],
+        github: "https://github.com/emilbob/solrail",
+      },
+      {
+        index: "006",
+        title: "SUBSTRATE NODE PROBE",
+        category: "Rust · Substrate",
+        year: "2026",
+        tag: "SUBSTRATE",
+        desc: "Connects to a Substrate node over WebSocket and proves which chain it is actually serving by checking the genesis hash before it trusts anything else — then reports identity, peer count, sync state and block height as structured JSON. Failures carry a stable taxonomy, so a monitor can tell “I cannot reach the node” from “the node is up and unhealthy” without parsing prose.",
+        stack: ["Rust", "Substrate", "Polkadot", "JSON-RPC", "WebSocket", "Docker"],
+        github: "https://github.com/emilbob/substrate-node-probe",
+        live: "https://emilbob.github.io/substrate-node-probe/",
+      },
+      {
+        index: "007",
         title: "SOLANA DATA AGGREGATOR",
         category: "Rust · Blockchain",
         year: "2025",
@@ -73,17 +94,7 @@ const GROUPS = [
         live: "https://solana-data-aggregator.onrender.com",
       },
       {
-        index: "006",
-        title: "SUBSTRATE HANDSHAKE",
-        category: "Rust · Substrate",
-        year: "2024",
-        tag: "SUBSTRATE",
-        desc: "Secure WebSocket client for Substrate nodes — performs an authenticated handshake, queries chain identity and version via JSON-RPC, with detailed step-by-step communication logging.",
-        stack: ["Rust", "Substrate", "WebSocket", "JSON-RPC", "Polkadot"],
-        github: "https://github.com/emilbob/substrate_handshake",
-      },
-      {
-        index: "007",
+        index: "008",
         title: "CROWDFUNDING ICP",
         category: "Smart Contract · ICP",
         year: "2024",
@@ -93,7 +104,7 @@ const GROUPS = [
         github: "https://github.com/emilbob/Crowdfunding-ICP",
       },
       {
-        index: "008",
+        index: "009",
         title: "PICASO TOKEN",
         category: "Solidity · DeFi",
         year: "2023",
@@ -108,7 +119,7 @@ const GROUPS = [
     label: "CREATIVE WEB",
     projects: [
       {
-        index: "009",
+        index: "010",
         title: "OBSCURA",
         category: "WebGL · Experience",
         year: "2026",
@@ -119,7 +130,7 @@ const GROUPS = [
         live: "https://obscura-emilbobs-projects.vercel.app",
       },
       {
-        index: "010",
+        index: "011",
         title: "ABYSS",
         category: "WebGL · Experience",
         year: "2026",
