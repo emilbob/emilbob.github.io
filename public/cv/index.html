@@ -366,12 +366,29 @@
         .skill-group h3 {
           color: #777 !important;
         }
+        /* Sections are taller than a page; forcing them whole strands a
+           near-empty page before "Selected work". Keep individual entries
+           intact instead, and never leave a heading alone at a page foot. */
         section {
-          margin-top: 1.5rem;
-          break-inside: avoid-page;
+          margin-top: 1.4rem;
+        }
+        h2 {
+          break-after: avoid;
         }
         .summary p {
           font-size: 0.95rem;
+        }
+        .summary p + p {
+          margin-top: 0.6rem;
+        }
+        .proj p {
+          margin-top: 0.25rem;
+        }
+        .proj-links {
+          margin-top: 0.35rem;
+        }
+        .skill-group {
+          margin-bottom: 0.8rem;
         }
       }
     </style>
