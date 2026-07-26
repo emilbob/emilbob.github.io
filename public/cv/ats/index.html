@@ -176,20 +176,57 @@
       }
 
       @media print {
+        /* Tuned to land on 2 pages. The content is unchanged from the 3-page
+           version — this is all leading, margin and rule spacing. Adding a
+           project or a few bullets will push it back to 3. */
         @page {
-          margin: 0.5in 0.62in;
+          margin: 0.42in 0.55in;
           size: letter;
         }
         body {
           padding: 0;
           max-width: none;
-          font-size: 10pt;
+          font-size: 9.6pt;
+          line-height: 1.4;
         }
         h1 {
-          font-size: 25pt;
+          font-size: 21pt;
+          margin-bottom: 3pt;
+        }
+        .target-title {
+          font-size: 8.75pt;
+          margin-bottom: 7pt;
+        }
+        .contact {
+          font-size: 8.5pt;
+          line-height: 1.5;
+          padding-top: 6pt;
         }
         h2 {
-          margin-top: 16pt;
+          font-size: 8pt;
+          margin-top: 11pt;
+          margin-bottom: 5pt;
+          padding-bottom: 3pt;
+        }
+        h3 {
+          font-size: 10.75pt;
+          margin-top: 8pt;
+        }
+        .job-meta {
+          font-size: 8.5pt;
+          margin-bottom: 3pt;
+        }
+        p {
+          margin-bottom: 4pt;
+        }
+        li {
+          margin-bottom: 1.75pt;
+        }
+        ul {
+          margin-bottom: 3pt;
+        }
+        .skills-line {
+          margin-bottom: 3pt;
         }
         /* Colour survives "Save as PDF"; some print paths drop backgrounds,
            so the bullet is a border-box, never a background image. */
