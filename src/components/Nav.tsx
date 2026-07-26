@@ -87,11 +87,22 @@ export default function Nav() {
         ))}
       </ul>
 
-      {/* Right: available */}
-      <span className="flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-electric pulse-electric" />
-        <span className="font-mono text-base text-mist tracking-widest">AVAILABLE</span>
-      </span>
+      {/* Right: CV + available */}
+      <div className="flex items-center gap-5 md:gap-7">
+        <MagneticEl strength={0.25} range={60}>
+          <a
+            href="/cv/"
+            className="font-mono text-base tracking-[0.2em] text-mist uppercase hover:text-electric transition-colors duration-200 group relative"
+          >
+            CV
+            <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-electric group-hover:w-full transition-all duration-300" />
+          </a>
+        </MagneticEl>
+        <span className="flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-electric pulse-electric" />
+          <span className="font-mono text-base text-mist tracking-widest">AVAILABLE</span>
+        </span>
+      </div>
     </nav>
   )
 }

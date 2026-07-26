@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Emil Bob — CV</title>
+    <meta
+      name="description"
+      content="Emil Bob — CV. AI agent systems, Rust, applied cryptography. Polkadot Blockchain Academy graduate. Novi Sad, Serbia."
+    />
+    <link rel="canonical" href="https://emilbob.github.io/cv/" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://emilbob.github.io/cv/" />
+    <meta property="og:title" content="Emil Bob — CV" />
+    <meta
+      property="og:description"
+      content="AI agent systems, Rust, applied cryptography. Polkadot Blockchain Academy graduate."
+    />
+    <meta property="og:image" content="https://emilbob.github.io/profilna_bw.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --void: #0a0a0a;
+        --ash: #111111;
+        --smoke: #222222;
+        --mist: #b0b0b0;
+        --dim: #6e6e6e;
+        --ivory: #f5f5f5;
+        --electric: #ffffff;
+        --mono: "JetBrains Mono", ui-monospace, monospace;
+        --sans: "Inter", system-ui, sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--void);
+        color: var(--ivory);
+        font-family: var(--sans);
+        font-weight: 300;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 3.5rem)
+          clamp(3rem, 8vw, 6rem);
+      }
+
+      /* ---------- Header ---------- */
+
+      .back {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--mist);
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 3rem;
+        transition: color 0.2s;
+      }
+      .back:hover {
+        color: var(--electric);
+      }
+
+      h1 {
+        font-family: var(--mono);
+        font-size: clamp(2.4rem, 7vw, 4rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        color: var(--ivory);
+      }
+
+      .role {
+        font-family: var(--mono);
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        color: var(--mist);
+        letter-spacing: 0.12em;
+        margin-top: 1rem;
+      }
+
+      .meta {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--mist);
+        margin-top: 1.75rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.75rem;
+      }
+      .meta a {
+        color: var(--mist);
+        text-decoration: none;
+        border-bottom: 1px solid var(--smoke);
+        padding-bottom: 1px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .meta a:hover {
+        color: var(--electric);
+        border-color: var(--mist);
+      }
+
+      /* ---------- Sections ---------- */
+
+      section {
+        margin-top: clamp(2.75rem, 6vw, 4rem);
+      }
+
+      h2 {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--mist);
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--smoke);
+        margin-bottom: 1.75rem;
+      }
+
+      .summary p {
+        font-size: 1.05rem;
+        color: var(--ivory);
+        max-width: 68ch;
+      }
+      .summary p + p {
+        margin-top: 0.9rem;
+      }
+      .summary a {
+        color: var(--mist);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-color: var(--smoke);
+      }
+      .summary a:hover {
+        color: var(--ivory);
+      }
+
+      /* ---------- Entries ---------- */
+
+      .entry {
+        display: grid;
+        grid-template-columns: 11rem 1fr;
+        gap: 1.5rem;
+        padding: 1.15rem 0;
+        border-bottom: 1px solid var(--smoke);
+      }
+      .entry:last-child {
+        border-bottom: none;
+      }
+
+      .entry .when {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--mist);
+        letter-spacing: 0.04em;
+        padding-top: 0.2rem;
+      }
+
+      .entry .what {
+        font-family: var(--mono);
+        font-size: 1.05rem;
+        color: var(--ivory);
+        letter-spacing: -0.01em;
+      }
+      .entry .where {
+        font-size: 0.92rem;
+        color: var(--mist);
+        margin-top: 0.3rem;
+      }
+      .entry .where .dot {
+        color: var(--smoke);
+        padding: 0 0.4rem;
+      }
+
+      /* ---------- Projects ---------- */
+
+      .proj {
+        padding: 1.15rem 0;
+        border-bottom: 1px solid var(--smoke);
+      }
+      .proj:last-child {
+        border-bottom: none;
+      }
+      .proj-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.6rem 1rem;
+      }
+      .proj-name {
+        font-family: var(--mono);
+        font-size: 1.05rem;
+        color: var(--ivory);
+      }
+      .proj-tags {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--mist);
+        letter-spacing: 0.08em;
+      }
+      .proj p {
+        font-size: 0.95rem;
+        color: var(--mist);
+        margin-top: 0.4rem;
+        max-width: 74ch;
+      }
+      .proj-links {
+        margin-top: 0.55rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+      }
+      .proj-links a {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--mist);
+        text-decoration: none;
+        border-bottom: 1px solid var(--smoke);
+        padding-bottom: 1px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .proj-links a:hover {
+        color: var(--electric);
+        border-color: var(--mist);
+      }
+
+      /* ---------- Skills ---------- */
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .skills span {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--mist);
+        border: 1px solid var(--smoke);
+        padding: 0.4rem 0.75rem;
+      }
+
+      .skill-group {
+        margin-bottom: 1.5rem;
+      }
+      .skill-group:last-child {
+        margin-bottom: 0;
+      }
+      .skill-group h3 {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--dim);
+        margin-bottom: 0.6rem;
+      }
+
+      footer {
+        margin-top: clamp(3rem, 7vw, 5rem);
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--smoke);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--dim);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+      }
+
+      @media (max-width: 640px) {
+        .entry {
+          grid-template-columns: 1fr;
+          gap: 0.35rem;
+        }
+        .entry .when {
+          padding-top: 0;
+          order: 2;
+        }
+      }
+
+      /* ---------- Print: flip to ink on paper ---------- */
+
+      @media print {
+        @page {
+          margin: 14mm 12mm;
+        }
+        html,
+        body {
+          background: #fff !important;
+          color: #111 !important;
+        }
+        .page {
+          max-width: none;
+          padding: 0;
+        }
+        .back,
+        footer {
+          display: none !important;
+        }
+
+        h1 {
+          color: #000 !important;
+          font-size: 2.1rem;
+        }
+        .role,
+        .meta,
+        .entry .when,
+        .entry .where,
+        .proj p,
+        .proj-tags {
+          color: #444 !important;
+        }
+        h2 {
+          color: #000 !important;
+          border-color: #bbb !important;
+          margin-bottom: 1rem;
+        }
+        .summary p,
+        .entry .what,
+        .proj-name {
+          color: #111 !important;
+        }
+        .meta a,
+        .proj-links a,
+        .summary a {
+          color: #444 !important;
+          border-color: #ccc !important;
+          text-decoration-color: #ccc !important;
+        }
+        .entry,
+        .proj {
+          border-color: #ddd !important;
+          padding: 0.5rem 0;
+          break-inside: avoid;
+        }
+        .skills span {
+          border-color: #ccc !important;
+          color: #333 !important;
+          padding: 0.15rem 0.4rem;
+          font-size: 0.7rem;
+        }
+        .skill-group h3 {
+          color: #777 !important;
+        }
+        section {
+          margin-top: 1.5rem;
+          break-inside: avoid-page;
+        }
+        .summary p {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <a class="back" href="/">← emilbob.github.io</a>
+
+      <header>
+        <h1>Emil Bob</h1>
+        <p class="role">AI Agent Systems · Rust · Cryptography</p>
+
+        <div class="meta">
+          <span>Novi Sad, Serbia — open to remote</span>
+          <a href="mailto:emilbob03@gmail.com">emilbob03@gmail.com</a>
+          <a href="https://github.com/emilbob" target="_blank" rel="noopener noreferrer">github.com/emilbob</a>
+          <a href="https://www.linkedin.com/in/emilbob/" target="_blank" rel="noopener noreferrer">linkedin.com/in/emilbob</a>
+          <a href="https://x.com/emilbob_" target="_blank" rel="noopener noreferrer">x.com/emilbob_</a>
+        </div>
+      </header>
+
+      <section class="summary">
+        <h2>Summary</h2>
+        <p>
+          Engineer building autonomous AI agent systems — persistent memory,
+          orchestration, and audit layers that make agents reliable. Deep
+          background in Rust and applied cryptography, with years across
+          full-stack, blockchain, and creative web.
+        </p>
+        <p>
+          <a
+            href="https://www.youtube.com/watch?v=FGMlm9ugBpk"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Polkadot Blockchain Academy graduate (Singapore, 2024)</a
+          >, with experience across decentralized technologies, cross-chain
+          infrastructure, and emerging digital systems. Alongside software
+          development, focused on creative web experiences through WebGL, motion
+          design, and interactive interfaces — combining strong technical
+          foundations with design-oriented thinking. Previously worked on
+          PropTech, CGI, and digital visualization projects across Novi Sad,
+          Budapest, and Berlin.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <div class="entry">
+          <div class="when">Sep 2021 – Dec 2025</div>
+          <div>
+            <div class="what">Software Developer — Moonstruck</div>
+            <div class="where">
+              Rust · Node · React <span class="dot">/</span> Belgrade
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="when">Jan 2020 – Sep 2021</div>
+          <div>
+            <div class="what">Software Developer — FRUSS AG</div>
+            <div class="where">
+              .NET · Node · React <span class="dot">/</span> Remote
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="when">Sep 2017 – Nov 2019</div>
+          <div>
+            <div class="what">
+              Computer Graphics Generalist — EVE Visual Technologies
+            </div>
+            <div class="where">
+              Unity · WebGL · C# <span class="dot">/</span> Budapest
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="when">Jul 2015 – Jul 2017</div>
+          <div>
+            <div class="what">
+              Computer Graphics Generalist — Case3D Proptech Solutions
+            </div>
+            <div class="where">
+              Unity · WebGL · C# <span class="dot">/</span> Novi Sad
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+
+        <div class="entry">
+          <div class="when">2024</div>
+          <div>
+            <div class="what">Polkadot Blockchain Academy</div>
+            <div class="where">Singapore <span class="dot">/</span> Graduate</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="when">MEng</div>
+          <div>
+            <div class="what">Faculty of Technical Sciences</div>
+            <div class="where">University of Novi Sad</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Selected work</h2>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">AI Agent Memory</span>
+            <span class="proj-tags">AI · Infrastructure · 2026</span>
+          </div>
+          <p>
+            Persistent, file-based memory system for autonomous AI coding agents
+            — durable facts, project context, and audit trails that survive
+            across sessions, with an index the agent loads on startup. The
+            recall and orchestration layer that makes agents reliable instead of
+            forgetful.
+          </p>
+          <div class="proj-links">
+            <a href="https://github.com/emilbob/Emil-Dev-Vault" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">zk-Standoff</span>
+            <span class="proj-tags">Rust · ZK · Game theory · 2025</span>
+          </div>
+          <p>
+            Three-move standoff where each player commits their move as a
+            zero-knowledge proof — strategies stay hidden until reveal, so no one
+            can peek and outcomes are provably fair. Repeated-game tournament
+            engine in Rust, born at the Polkadot Blockchain Academy.
+          </p>
+          <div class="proj-links">
+            <a href="https://github.com/emilbob/Game-theory" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://game-theory-tan.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">substrate-node-probe</span>
+            <span class="proj-tags">Rust · Substrate · Polkadot · 2026</span>
+          </div>
+          <p>
+            Connects to a Substrate node over WebSocket and proves which chain it
+            is actually serving by checking the genesis hash before it trusts
+            anything else, then reports identity, peer count, sync state and
+            block height as structured JSON. Failures carry a stable taxonomy, so
+            a monitor can tell "I cannot reach the node" from "the node is up and
+            unhealthy" without parsing prose.
+          </p>
+          <div class="proj-links">
+            <a href="https://github.com/emilbob/substrate-node-probe" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://emilbob.github.io/substrate-node-probe/" target="_blank" rel="noopener noreferrer">Live demo</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">solrail</span>
+            <span class="proj-tags">TypeScript · Solana · Payments · 2026</span>
+          </div>
+          <p>
+            Payment rails for Solana — Stripe-grade DX for accepting SOL and USDC
+            on any site, through a React checkout, a script-tag widget, or Framer
+            and Webflow embeds. Non-custodial by design: funds move
+            wallet-to-wallet and solrail never holds money.
+          </p>
+          <div class="proj-links">
+            <a href="https://github.com/emilbob/solrail" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Proof of Anchor</span>
+            <span class="proj-tags">Solana · Anchor · Noir · 2025</span>
+          </div>
+          <p>
+            Zero-knowledge proof verification system using Noir ZK circuits and
+            Solana/Anchor for trustless on-chain attestation. Built for the
+            Colosseum × Solana × Cypherpunk hackathon.
+          </p>
+          <div class="proj-links">
+            <a href="https://github.com/emilbob/proof-of-anchor" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://proofanchor.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Solana Data Aggregator</span>
+            <span class="proj-tags">Rust · Solana · REST · 2025</span>
+          </div>
+          <p>
+            Real-time Solana transaction aggregator with in-memory storage, file
+            persistence across restarts, and a RESTful API. Query transactions by
+            public key and date with pagination.
+          </p>
+          <div class="proj-links">
+            <a href="https://github.com/emilbob/solana-data-aggregator" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://solana-data-aggregator.onrender.com" target="_blank" rel="noopener noreferrer">Live demo</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Obscura / Abyss</span>
+            <span class="proj-tags">React Three Fiber · GSAP · WebGL · 2026</span>
+          </div>
+          <p>
+            Two cinematic, instrument-grade scroll experiences — void-black space
+            with a single luminous accent, slow GSAP-driven chapters over a live
+            Three.js scene with postprocessing bloom, smooth-scrolled with Lenis.
+          </p>
+          <div class="proj-links">
+            <a href="https://obscura-emilbobs-projects.vercel.app" target="_blank" rel="noopener noreferrer">Obscura</a>
+            <a href="https://abyss-omega-five.vercel.app" target="_blank" rel="noopener noreferrer">Abyss</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+
+        <div class="skill-group">
+          <h3>AI systems</h3>
+          <div class="skills">
+            <span>Claude Code</span><span>AI Agents</span><span>MCP</span
+            ><span>Agent Memory</span><span>Orchestration</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Systems &amp; cryptography</h3>
+          <div class="skills">
+            <span>Rust</span><span>Substrate</span><span>Polkadot</span
+            ><span>Solana</span><span>Anchor</span><span>Ethereum</span
+            ><span>Solidity</span><span>ZK Proofs</span><span>Noir</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Web &amp; interface</h3>
+          <div class="skills">
+            <span>TypeScript</span><span>React.js</span><span>Node.js</span
+            ><span>React Native</span><span>WebGL</span><span>Three.js</span
+            ><span>GSAP</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Graphics &amp; tooling</h3>
+          <div class="skills">
+            <span>Unity</span><span>C#</span><span>Docker</span><span>Git</span
+            ><span>CI/CD</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>Emil Bob — CV</span>
+        <span>emilbob.github.io/cv</span>
+      </footer>
+    </main>
+  </body>
+</html>
