@@ -103,6 +103,7 @@ const GROUPS = [
         desc: "Kickstarter-like decentralised crowdfunding on the Internet Computer. Campaigns have owners, goal amounts, and deadlines — contributors fund campaigns and owners withdraw once the goal is reached.",
         stack: ["TypeScript", "ICP", "Azle", "DFX"],
         github: "https://github.com/emilbob/Crowdfunding-ICP",
+        live: "https://crowdfunding-icp-beryl.vercel.app/",
       },
       {
         index: "009",
