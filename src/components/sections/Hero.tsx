@@ -118,7 +118,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative h-screen flex flex-col justify-between px-gutter pt-24 pb-36 overflow-hidden"
+      className="relative h-screen flex flex-col justify-between px-gutter pt-10 pb-20 md:pt-24 md:pb-36 overflow-hidden"
     >
       {/* WebGL noise — desktop only */}
       {window.innerWidth >= 768 && (
@@ -133,14 +133,14 @@ export default function Hero() {
       {/* Meta bar */}
       <div
         ref={metaRef}
-        className="relative z-10 flex flex-wrap gap-x-8 gap-y-2 border-b border-smoke/60 pb-6"
+        className="relative z-10 flex flex-wrap gap-x-4 gap-y-1.5 md:gap-x-8 md:gap-y-2 border-b border-smoke/60 pb-3 md:pb-6"
         style={{ opacity: 0 }}
       >
         {META.map(({ label, value }) => (
           <div key={label} className="flex items-center gap-2">
-            <span className="font-mono text-lg text-mist">{label}</span>
-            <span className="font-mono text-lg text-mist">·</span>
-            <span className="font-mono text-lg text-electric">{value}</span>
+            <span className="font-mono text-sm md:text-lg text-mist">{label}</span>
+            <span className="font-mono text-sm md:text-lg text-mist">·</span>
+            <span className="font-mono text-sm md:text-lg text-electric">{value}</span>
           </div>
         ))}
       </div>
@@ -148,11 +148,11 @@ export default function Hero() {
       {/* Name block */}
       <div
         ref={nameBlockRef}
-        className="relative z-10 flex flex-col flex-1 justify-center pt-0 pb-16"
+        className="relative z-10 flex flex-col flex-1 justify-center pt-0 pb-6 md:pb-16"
       >
         <span
           ref={numRef}
-          className="font-mono text-5xl text-mist tabular-nums leading-none mb-4"
+          className="font-mono text-3xl md:text-5xl text-mist tabular-nums leading-none mb-3 md:mb-4"
           style={{ opacity: 0 }}
         >
           ---
@@ -160,15 +160,15 @@ export default function Hero() {
 
         <div
           ref={dividerRef}
-          className="w-full h-px bg-smoke/60 origin-left mb-8"
+          className="w-full h-px bg-smoke/60 origin-left mb-5 md:mb-8"
           style={{ transform: "scaleX(0)" }}
         />
 
-        <div ref={tagsRef} className="flex flex-wrap gap-3">
+        <div ref={tagsRef} className="flex flex-wrap gap-2 md:gap-3">
           {TAGS.map((tag, i) => (
             <MagneticEl key={tag}>
               <span
-                className="tag font-mono text-2xl tracking-[0.2em] uppercase px-5 py-2.5 border border-smoke/60 text-mist hover:border-electric hover:text-electric transition-all duration-300"
+                className="tag font-mono text-sm md:text-2xl tracking-[0.1em] md:tracking-[0.2em] uppercase px-3 py-1.5 md:px-5 md:py-2.5 border border-smoke/60 text-mist hover:border-electric hover:text-electric transition-all duration-300"
                 style={{ opacity: 0 }}
               >
                 {i > 0 && <span className="text-mist mr-3">×</span>}
@@ -190,10 +190,10 @@ export default function Hero() {
           moves the element by the exact pixel amount given. */}
       <div
         ref={scrollRef}
-        className="relative z-10 border-t border-smoke/60 pt-6"
-        style={{ opacity: 0, transform: "translateY(-32px)" }}
+        className="relative z-10 border-t border-smoke/60 pt-3 md:pt-6 -translate-y-2 md:-translate-y-8"
+        style={{ opacity: 0 }}
       >
-        <p className="font-sans text-4xl text-mist max-w-lg leading-relaxed">
+        <p className="font-sans text-xl md:text-4xl text-mist max-w-lg leading-relaxed">
           Building autonomous agent systems, and the memory and proofs that make them trustworthy.
         </p>
       </div>
