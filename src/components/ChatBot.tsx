@@ -169,7 +169,7 @@ export default function ChatBot() {
     <>
       {/* Launcher — bottom-left, opposite BackToTop. Icon + "Chat" reads as a
           chat widget at a glance; the plain "• Ask" pill it replaced didn't. */}
-      <MagneticEl className="fixed bottom-8 left-8 z-[60]" strength={0.3} range={70}>
+      <MagneticEl className="fixed bottom-8 left-gutter z-[60]" strength={0.3} range={70}>
         <button
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
@@ -209,7 +209,7 @@ export default function ChatBot() {
       <div
         ref={panelRef}
         aria-hidden={!open}
-        className="fixed z-[60] flex flex-col border border-smoke bg-void/95 backdrop-blur-md bottom-24 left-8 w-[400px] h-[min(560px,65vh)] max-sm:left-4 max-sm:right-4 max-sm:bottom-24 max-sm:w-auto max-sm:h-[min(480px,60vh)]"
+        className="fixed z-[60] flex flex-col border border-smoke bg-void/95 backdrop-blur-md bottom-24 left-gutter w-[400px] h-[min(560px,65vh)] max-sm:left-4 max-sm:right-4 max-sm:bottom-24 max-sm:w-auto max-sm:h-[min(480px,60vh)]"
         style={{ opacity: 0, visibility: 'hidden' }}
       >
         {/* Title bar */}
