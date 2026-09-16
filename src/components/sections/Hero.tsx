@@ -95,8 +95,23 @@ export default function Hero() {
       1.1,
     );
 
+    // Idle float — a slow nudge in the arrow's own direction to read as
+    // "scroll down here". A separate, infinitely-repeating tween rather
+    // than part of the one-shot intro timeline above, and on scrollCueRef
+    // (the outer wrapper) rather than the MagneticEl child inside it, since
+    // MagneticEl drives its own x/y transform on pointer proximity — a
+    // second tween on that same element would fight it for the same
+    // property. Nested transforms on parent vs. child compose fine.
+    const idleFloat = gsap.to(scrollCueRef.current, {
+      y: 12,
+      duration: 1.8,
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1,
+    });
+
     // Parallax
-    gsap.to(line1Ref.current?.parentElement ?? "", {
+    const parallax = gsap.to(line1Ref.current?.parentElement ?? "", {
       yPercent: 22,
       ease: "none",
       scrollTrigger: {
@@ -106,6 +121,20 @@ export default function Hero() {
         scrub: true,
       },
     });
+
+    // Every other section in this file skips cleanup — harmless there since
+    // their tweens are all one-shot, so StrictMode's dev-only double-invoke
+    // just runs two near-identical finite animations that finish and are
+    // never seen again. idleFloat is this file's first *infinite* tween:
+    // with no cleanup, the first invocation's y-tween would keep running
+    // forever alongside the second, two tweens permanently fighting over
+    // the same property. Kill everything the effect created on unmount so
+    // exactly one clean set survives.
+    return () => {
+      tl.kill();
+      idleFloat.kill();
+      parallax.kill();
+    };
   }, []);
 
   return (
