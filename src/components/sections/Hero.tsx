@@ -179,11 +179,19 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom row */}
+      {/* Bottom row — shifted up via transform, not margin. This sits right
+          after nameBlockRef, which is flex-grow (flex-1): the flex algorithm
+          treats a margin change here as "less outer size to reserve," so
+          nameBlockRef silently grows to fill the exact difference and the
+          margin has zero visible effect (confirmed directly: -8px through
+          -128px of margin-top all produced an identical paragraph position).
+          A transform never participates in flex layout at all, so it can't
+          be absorbed the same way — confirmed this one instead reliably
+          moves the element by the exact pixel amount given. */}
       <div
         ref={scrollRef}
-        className="relative z-10 border-t border-smoke/60 pt-6 -mt-8"
-        style={{ opacity: 0 }}
+        className="relative z-10 border-t border-smoke/60 pt-6"
+        style={{ opacity: 0, transform: "translateY(-32px)" }}
       >
         <p className="font-sans text-4xl text-mist max-w-lg leading-relaxed">
           Building autonomous agent systems, and the memory and proofs that make them trustworthy.
