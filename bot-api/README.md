@@ -20,7 +20,7 @@ Four things stand between the endpoint and a surprise bill:
 | Guard | Where | Effect |
 |---|---|---|
 | Origin allowlist | `corsHeaders()` | Other sites get 403; a browser can't send a forged `Origin` |
-| Server-side system prompt | `lib/context.ts` | The client sends only user/assistant turns, so nobody can repurpose this as a general LLM |
+| Server-side system prompt | `api/_context.ts` | The client sends only user/assistant turns, so nobody can repurpose this as a general LLM |
 | Input caps | `parseMessages()` | ≤24 turns, ≤1500 chars/message, ≤12000 chars total, ≤700 output tokens |
 | Per-IP rate limit | `rateLimited()` | 12 messages / 5 min |
 
@@ -109,7 +109,7 @@ model mostly multiplies that input cost, since the context dominates.
 
 ## Editing what the bot knows
 
-`lib/context.ts`. It's a hand-maintained snapshot of the site's content — the same
+`api/_context.ts`. It's a hand-maintained snapshot of the site's content — the same
 hazard as `GROUPS` in `src/components/sections/Projects.tsx`: nothing breaks when it
 goes stale, the bot just confidently says something out of date. Update it whenever
 a project is added, renamed, or gets a live demo.

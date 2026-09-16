@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPT } from '../lib/context.ts'
+import { SYSTEM_PROMPT } from './_context.ts'
 
 export const config = { runtime: 'edge' }
 
