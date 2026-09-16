@@ -17,8 +17,7 @@ const TAGS = ["AI Agents", "Rust", "Cryptography", "Creative Dev"];
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const metaRef = useRef<HTMLDivElement>(null);
-  const line1Ref = useRef<HTMLDivElement>(null);
-  const line2Ref = useRef<HTMLDivElement>(null);
+  const nameBlockRef = useRef<HTMLDivElement>(null);
   const numRef = useRef<HTMLSpanElement>(null);
   const tagsRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -44,28 +43,6 @@ export default function Hero() {
     tl.add(() => {
       if (numRef.current) scramble(numRef.current, "001", { duration: 600 });
     }, 0.1);
-
-    tl.fromTo(
-      line1Ref.current,
-      { yPercent: 110 },
-      { yPercent: 0, duration: 1.1, ease: "expo.out" },
-      0.15,
-    );
-    tl.add(() => {
-      if (line1Ref.current)
-        scramble(line1Ref.current, "EMIL", { duration: 700 });
-    }, 0.15);
-
-    tl.fromTo(
-      line2Ref.current,
-      { yPercent: 110 },
-      { yPercent: 0, duration: 1.1, ease: "expo.out" },
-      0.27,
-    );
-    tl.add(() => {
-      if (line2Ref.current)
-        scramble(line2Ref.current, "BOB", { duration: 700 });
-    }, 0.27);
 
     tl.fromTo(
       dividerRef.current,
@@ -111,7 +88,7 @@ export default function Hero() {
     });
 
     // Parallax
-    const parallax = gsap.to(line1Ref.current?.parentElement ?? "", {
+    const parallax = gsap.to(nameBlockRef.current ?? "", {
       yPercent: 22,
       ease: "none",
       scrollTrigger: {
@@ -169,36 +146,17 @@ export default function Hero() {
       </div>
 
       {/* Name block */}
-      <div className="relative z-10 flex flex-col flex-1 justify-center pt-0 pb-16">
-        <div className="flex items-start gap-6 mb-4">
-          <span
-            ref={numRef}
-            className="font-mono text-5xl text-mist tabular-nums leading-none"
-            style={{ opacity: 0 }}
-          >
-            ---
-          </span>
-          <div className="flex-1">
-            <div className="overflow-hidden">
-              <div
-                ref={line1Ref}
-                className="font-mono text-[clamp(3rem,min(12vw,13vh),13rem)] text-ivory tracking-tighter leading-none"
-                style={{ transform: "translateY(110%)" }}
-              >
-                EMIL
-              </div>
-            </div>
-            <div className="overflow-hidden">
-              <div
-                ref={line2Ref}
-                className="font-mono text-[clamp(3rem,min(12vw,13vh),13rem)] text-electric tracking-tighter leading-none"
-                style={{ transform: "translateY(110%)" }}
-              >
-                BOB
-              </div>
-            </div>
-          </div>
-        </div>
+      <div
+        ref={nameBlockRef}
+        className="relative z-10 flex flex-col flex-1 justify-center pt-0 pb-16"
+      >
+        <span
+          ref={numRef}
+          className="font-mono text-5xl text-mist tabular-nums leading-none mb-4"
+          style={{ opacity: 0 }}
+        >
+          ---
+        </span>
 
         <div
           ref={dividerRef}
