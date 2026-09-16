@@ -169,7 +169,7 @@ export default function Hero() {
       </div>
 
       {/* Name block */}
-      <div className="relative z-10 flex flex-col flex-1 justify-center py-8">
+      <div className="relative z-10 flex flex-col flex-1 justify-center pt-0 pb-16">
         <div className="flex items-start gap-6 mb-4">
           <span
             ref={numRef}
@@ -224,7 +224,7 @@ export default function Hero() {
       {/* Bottom row */}
       <div
         ref={scrollRef}
-        className="relative z-10 border-t border-smoke/60 pt-6"
+        className="relative z-10 border-t border-smoke/60 pt-6 -mt-8"
         style={{ opacity: 0 }}
       >
         <p className="font-sans text-4xl text-mist max-w-lg leading-relaxed">
