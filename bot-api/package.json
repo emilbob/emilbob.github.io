@@ -1,0 +1,15 @@
+{
+  "name": "emil-bot-api",
+  "private": true,
+  "version": "1.0.0",
+  "description": "OpenRouter proxy for the emilbob.github.io portfolio chat bot.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --no-warnings test/chat.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.4.5"
+  },
+  "type": "module"
+}

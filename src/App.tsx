@@ -7,6 +7,7 @@ import Cursor from './components/Cursor'
 import Loader from './components/Loader'
 import Nav from './components/Nav'
 import BackToTop from './components/BackToTop'
+import ChatBot from './components/ChatBot'
 import Hero from './components/sections/Hero'
 import About from './components/sections/About'
 import Projects from './components/sections/Projects'
@@ -35,6 +36,7 @@ export default function App() {
         style={{ opacity: loaded ? 1 : 0, transition: 'opacity 0.6s ease' }}
       >
         <Nav />
+        <ChatBot />
         <main>
           <Hero />
           <About />

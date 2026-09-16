@@ -32,6 +32,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Repository variable, not a secret — Vite inlines it into the public
+          # bundle. The API key lives only in the Vercel project (bot-api/).
+          VITE_BOT_API_URL: ${{ vars.VITE_BOT_API_URL }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v6

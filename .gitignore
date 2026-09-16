@@ -5,3 +5,7 @@ dist-ssr
 *.local
 *.log
 .vite
+
+# Local env (Vite)
+.env
+.env.local
