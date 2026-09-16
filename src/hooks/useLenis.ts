@@ -13,7 +13,6 @@ export function useLenis() {
     // works from any event (including wheel) with no further autoplay restrictions.
     const ctx = new AudioContext()
     let buffer: AudioBuffer | null = null
-    let lastPlayed = 0
 
     fetch('/dragon-studio-simple-whoosh-382724.mp3')
       .then(r => r.arrayBuffer())
@@ -28,9 +27,6 @@ export function useLenis() {
 
     const playSound = () => {
       if (!buffer || ctx.state !== 'running') return
-      const now = Date.now()
-      if (now - lastPlayed < 300) return
-      lastPlayed = now
       const source = ctx.createBufferSource()
       source.buffer = buffer
       const gain = ctx.createGain()
@@ -40,15 +36,36 @@ export function useLenis() {
       source.start(0)
     }
 
+    // One woosh per scroll *gesture*, not per wheel/touchmove event — a single
+    // trackpad swipe or mouse-wheel scroll fires dozens of these in quick
+    // succession, well inside any per-event time throttle. Play on the first
+    // event of a gesture, then hold off until motion has gone quiet for
+    // SCROLL_IDLE_MS before the next event is allowed to start a new one.
+    const SCROLL_IDLE_MS = 180
+    let scrollIdleTimer: ReturnType<typeof setTimeout> | undefined
+    let isScrolling = false
+
+    const onScrollEvent = () => {
+      if (!isScrolling) {
+        isScrolling = true
+        playSound()
+      }
+      clearTimeout(scrollIdleTimer)
+      scrollIdleTimer = setTimeout(() => {
+        isScrolling = false
+      }, SCROLL_IDLE_MS)
+    }
+
     const isMobile = window.innerWidth < 768
     const scrollEvent = isMobile ? 'touchmove' : 'wheel'
-    window.addEventListener(scrollEvent, playSound, { passive: true })
+    window.addEventListener(scrollEvent, onScrollEvent, { passive: true })
 
     if (isMobile) {
       return () => {
-        window.removeEventListener(scrollEvent, playSound)
+        window.removeEventListener(scrollEvent, onScrollEvent)
         window.removeEventListener('click', unlock)
         window.removeEventListener('keydown', unlock)
+        clearTimeout(scrollIdleTimer)
         ctx.close()
       }
     }
@@ -69,9 +86,10 @@ export function useLenis() {
     gsap.ticker.lagSmoothing(0)
 
     return () => {
-      window.removeEventListener(scrollEvent, playSound)
+      window.removeEventListener(scrollEvent, onScrollEvent)
       window.removeEventListener('click', unlock)
       window.removeEventListener('keydown', unlock)
+      clearTimeout(scrollIdleTimer)
       ctx.close()
       lenis?.destroy()
       lenis = null
