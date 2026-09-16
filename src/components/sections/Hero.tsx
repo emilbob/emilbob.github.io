@@ -22,6 +22,7 @@ export default function Hero() {
   const numRef = useRef<HTMLSpanElement>(null);
   const tagsRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollCueRef = useRef<HTMLDivElement>(null);
   const dividerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -82,6 +83,13 @@ export default function Hero() {
 
     tl.fromTo(
       scrollRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5 },
+      1.1,
+    );
+
+    tl.fromTo(
+      scrollCueRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 0.5 },
       1.1,
@@ -187,12 +195,19 @@ export default function Hero() {
       {/* Bottom row */}
       <div
         ref={scrollRef}
-        className="relative z-10 flex items-end justify-between border-t border-smoke/60 pt-6"
+        className="relative z-10 border-t border-smoke/60 pt-6"
         style={{ opacity: 0 }}
       >
         <p className="font-sans text-4xl text-mist max-w-lg leading-relaxed">
           Building autonomous agent systems, and the memory and proofs that make them trustworthy.
         </p>
+      </div>
+
+      {/* SCROLL cue — absolute within this h-screen section at bottom-8, the
+          same offset the fixed ChatBot launcher uses, so the two read as one
+          row instead of SCROLL sitting wherever the text row's own height
+          happens to land it. */}
+      <div ref={scrollCueRef} className="absolute z-10 bottom-8 right-gutter" style={{ opacity: 0 }}>
         <MagneticEl>
           <button
             onClick={() =>
