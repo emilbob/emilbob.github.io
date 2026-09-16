@@ -51,13 +51,25 @@ export function useLenis() {
     // succession, well inside any per-event time throttle. Play on the first
     // event of a gesture, then hold off until motion has gone quiet for
     // SCROLL_IDLE_MS before the next event is allowed to start a new one.
+    //
+    // On a long or fast scroll that keeps a single gesture going for a
+    // while, that first play is the only sound the whole scroll gets —
+    // easy to miss entirely amid a fast, visually busy motion. REPEAT_MS
+    // lets it repeat periodically for as long as the gesture continues, so
+    // a sustained fast scroll stays audible throughout instead of relying
+    // on catching one brief cue at the very start. A short scroll (under
+    // REPEAT_MS) is unaffected — still exactly one play.
     const SCROLL_IDLE_MS = 180
+    const REPEAT_MS = 550
     let scrollIdleTimer: ReturnType<typeof setTimeout> | undefined
     let isScrolling = false
+    let lastPlayedAt = 0
 
     const onScrollEvent = () => {
-      if (!isScrolling) {
+      const now = performance.now()
+      if (!isScrolling || now - lastPlayedAt >= REPEAT_MS) {
         isScrolling = true
+        lastPlayedAt = now
         playSound()
       }
       clearTimeout(scrollIdleTimer)
