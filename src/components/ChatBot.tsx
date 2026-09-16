@@ -174,22 +174,22 @@ export default function ChatBot() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? 'Close chat' : "Chat with Emil's assistant"}
-          className="flex items-center gap-2.5 font-mono text-base tracking-[0.2em] uppercase border px-4 py-2.5 transition-colors duration-200 border-smoke bg-void/90 backdrop-blur-md text-mist hover:border-electric hover:text-electric"
+          className="flex items-center gap-3 font-mono text-lg tracking-[0.2em] uppercase border px-5 py-3.5 transition-colors duration-200 border-smoke bg-void/90 backdrop-blur-md text-mist hover:border-electric hover:text-electric"
         >
-          <span className="relative flex items-center justify-center w-[18px] h-[18px] shrink-0">
+          <span className="relative flex items-center justify-center w-[24px] h-[24px] shrink-0">
             {open ? (
-              <span className="text-base leading-none">✕</span>
+              <span className="text-xl leading-none">✕</span>
             ) : (
               <>
                 {/* Speech-bubble glyph, sharp corners to match the site's zero-radius
                     borders elsewhere — a rounded chat-bubble icon would look imported. */}
                 <svg
                   viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
+                  width="24"
+                  height="24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={1.4}
+                  strokeWidth={1.3}
                   aria-hidden="true"
                 >
                   <path d="M4 4H20V15H10L7 19V15H4Z" />
@@ -197,7 +197,7 @@ export default function ChatBot() {
                   <circle cx="12" cy="9.5" r="0.9" fill="currentColor" stroke="none" />
                   <circle cx="16" cy="9.5" r="0.9" fill="currentColor" stroke="none" />
                 </svg>
-                <span className="absolute -top-1 -right-1 w-1.5 h-1.5 rounded-full bg-electric pulse-electric" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-electric pulse-electric" />
               </>
             )}
           </span>
