@@ -25,6 +25,16 @@ export function useLenis() {
     window.addEventListener('click', unlock, { once: true })
     window.addEventListener('keydown', unlock, { once: true })
 
+    // Browsers can auto-suspend an AudioContext for power saving after a
+    // stretch with no active audio graph — which is our normal state between
+    // wooshes, since each BufferSourceNode is transient. Once genuinely
+    // unlocked, sticky activation lets resume() succeed with no further
+    // click, so re-arm automatically whenever the browser suspends it on its
+    // own — otherwise every scroll after that point silently plays nothing.
+    ctx.addEventListener('statechange', () => {
+      if (ctx.state === 'suspended') ctx.resume().catch(() => {})
+    })
+
     const playSound = () => {
       if (!buffer || ctx.state !== 'running') return
       const source = ctx.createBufferSource()
@@ -56,6 +66,18 @@ export function useLenis() {
       }, SCROLL_IDLE_MS)
     }
 
+    // A backgrounded tab throttles or fully suspends timers, so the idle
+    // timeout above can fire much later than SCROLL_IDLE_MS — or not at all
+    // while hidden — leaving isScrolling stuck `true`. That silently
+    // swallows the next scroll once the tab is foregrounded again. Any
+    // visibility change means whatever gesture was in progress is over;
+    // reset explicitly instead of trusting a timer that may be starved.
+    const onVisibilityChange = () => {
+      isScrolling = false
+      clearTimeout(scrollIdleTimer)
+    }
+    document.addEventListener('visibilitychange', onVisibilityChange)
+
     const isMobile = window.innerWidth < 768
     const scrollEvent = isMobile ? 'touchmove' : 'wheel'
     window.addEventListener(scrollEvent, onScrollEvent, { passive: true })
@@ -65,6 +87,7 @@ export function useLenis() {
         window.removeEventListener(scrollEvent, onScrollEvent)
         window.removeEventListener('click', unlock)
         window.removeEventListener('keydown', unlock)
+        document.removeEventListener('visibilitychange', onVisibilityChange)
         clearTimeout(scrollIdleTimer)
         ctx.close()
       }
@@ -89,6 +112,7 @@ export function useLenis() {
       window.removeEventListener(scrollEvent, onScrollEvent)
       window.removeEventListener('click', unlock)
       window.removeEventListener('keydown', unlock)
+      document.removeEventListener('visibilitychange', onVisibilityChange)
       clearTimeout(scrollIdleTimer)
       ctx.close()
       lenis?.destroy()
