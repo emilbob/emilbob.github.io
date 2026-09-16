@@ -20,7 +20,7 @@ Four things stand between the endpoint and a surprise bill:
 | Guard | Where | Effect |
 |---|---|---|
 | Origin allowlist | `corsHeaders()` | Other sites get 403; a browser can't send a forged `Origin` |
-| Server-side system prompt | `api/_context.ts` | The client sends only user/assistant turns, so nobody can repurpose this as a general LLM |
+| Server-side system prompt | `SYSTEM_PROMPT` in `api/chat.ts` | The client sends only user/assistant turns, so nobody can repurpose this as a general LLM |
 | Input caps | `parseMessages()` | ≤24 turns, ≤1500 chars/message, ≤12000 chars total, ≤700 output tokens |
 | Per-IP rate limit | `rateLimited()` | 12 messages / 5 min |
 
@@ -109,7 +109,14 @@ model mostly multiplies that input cost, since the context dominates.
 
 ## Editing what the bot knows
 
-`api/_context.ts`. It's a hand-maintained snapshot of the site's content — the same
-hazard as `GROUPS` in `src/components/sections/Projects.tsx`: nothing breaks when it
-goes stale, the bot just confidently says something out of date. Update it whenever
-a project is added, renamed, or gets a live demo.
+The `FACTS` / `SYSTEM_PROMPT` block at the top of `api/chat.ts`. It's a
+hand-maintained snapshot of the site's content — the same hazard as `GROUPS` in
+`src/components/sections/Projects.tsx`: nothing breaks when it goes stale, the bot
+just confidently says something out of date. Update it whenever a project is
+added, renamed, or gets a live demo.
+
+It lives inline in `chat.ts` rather than its own module because Vercel's
+zero-config edge bundler for this project doesn't trace relative imports to
+other local files — only npm packages get bundled. A second `.ts` file, even in
+the same directory, fails the deploy with
+`NOW_SANDBOX_WORKER_EDGE_FUNCTION_UNSUPPORTED_MODULES`.
