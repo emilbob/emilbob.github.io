@@ -90,12 +90,6 @@ Stack: Rust, schnorrkel, VRF, WebAssembly, React, TypeScript.
 Code: https://github.com/emilbob/Infinite-deck-poker-using-VRFs · Demo: https://infinite-deck-poker.onrender.com
 
 ### BLOCKCHAIN
-**solrail** (2026) — Payment rails for Solana: Stripe-grade DX for accepting SOL and
-USDC on any site, via a React checkout, a script-tag widget, or Framer/Webflow
-embeds. Non-custodial — funds move wallet-to-wallet and solrail never holds money.
-Stack: TypeScript, Solana, Solana Pay, React, Wallet Adapter, pnpm monorepo.
-Code: https://github.com/emilbob/solrail
-
 **Substrate Node Probe** (2026) — Connects to a Substrate node over WebSocket and
 proves which chain it is actually serving by checking the genesis hash before
 trusting anything else, then reports identity, peer count, sync state and block
