@@ -19,13 +19,25 @@ const GROUPS = [
         stack: ["Claude Code", "AI Agents", "Persistent Memory", "Audit Trails"],
         github: "https://github.com/emilbob/Emil-Dev-Vault",
       },
+      {
+        index: "002",
+        title: "AUTOMATION GRAPH",
+        category: "Obsidian Plugin · DevOps",
+        year: "2026",
+        tag: "OBSIDIAN",
+        desc: "An Obsidian plugin that draws a repository's CI/CD automation as a directed graph — parsed fresh from the workflow files themselves on every open, so it can never drift from reality the way a hand-drawn diagram does. Published in Obsidian's community plugin directory, Emil's first shipped, publicly installable product.",
+        stack: ["JavaScript", "Obsidian API", "GitHub Actions", "SVG", "Node.js"],
+        github: "https://github.com/emilbob/obsidian-automation-graph",
+        live: "https://community.obsidian.md/plugins/automation-graph",
+        liveLabel: "Plugin listing",
+      },
     ],
   },
   {
     label: "CRYPTOGRAPHY & ZK",
     projects: [
       {
-        index: "002",
+        index: "003",
         title: "ZK-STANDOFF",
         category: "ZK · Game Theory",
         year: "2025",
@@ -36,7 +48,7 @@ const GROUPS = [
         live: "https://game-theory-tan.vercel.app/",
       },
       {
-        index: "003",
+        index: "004",
         title: "PROOF OF ANCHOR",
         category: "ZK · Hackathon",
         year: "2025",
@@ -47,7 +59,7 @@ const GROUPS = [
         live: "https://proofanchor.netlify.app/",
       },
       {
-        index: "004",
+        index: "005",
         title: "INFINITE DECK POKER",
         category: "Rust · Cryptography",
         year: "2026",
@@ -63,7 +75,7 @@ const GROUPS = [
     label: "BLOCKCHAIN",
     projects: [
       {
-        index: "005",
+        index: "006",
         title: "SUBSTRATE NODE PROBE",
         category: "Rust · Substrate",
         year: "2026",
@@ -74,7 +86,7 @@ const GROUPS = [
         live: "https://emilbob.github.io/substrate-node-probe/",
       },
       {
-        index: "006",
+        index: "007",
         title: "SOLANA DATA AGGREGATOR",
         category: "Rust · Blockchain",
         year: "2025",
@@ -85,7 +97,7 @@ const GROUPS = [
         live: "https://solana-data-aggregator.onrender.com",
       },
       {
-        index: "007",
+        index: "008",
         title: "CROWDFUNDING ICP",
         category: "Smart Contract · ICP",
         year: "2024",
@@ -96,7 +108,7 @@ const GROUPS = [
         live: "https://crowdfunding-icp-beryl.vercel.app/",
       },
       {
-        index: "008",
+        index: "009",
         title: "PICASO TOKEN",
         category: "Solidity · DeFi",
         year: "2026",
@@ -112,7 +124,7 @@ const GROUPS = [
     label: "CREATIVE WEB",
     projects: [
       {
-        index: "009",
+        index: "010",
         title: "OBSCURA",
         category: "WebGL · Experience",
         year: "2026",
@@ -123,7 +135,7 @@ const GROUPS = [
         live: "https://obscura-emilbobs-projects.vercel.app",
       },
       {
-        index: "010",
+        index: "011",
         title: "ABYSS",
         category: "WebGL · Experience",
         year: "2026",
@@ -345,7 +357,7 @@ export default function Projects() {
                                   rel="noopener noreferrer"
                                   className="font-mono text-2xs text-ivory border border-ivory px-4 py-2 hover:bg-ivory hover:text-void transition-all duration-200"
                                 >
-                                  Live demo ↗
+                                  {(p as { liveLabel?: string }).liveLabel ?? "Live demo"} ↗
                                 </a>
                               )}
                             </div>
