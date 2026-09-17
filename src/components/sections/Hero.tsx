@@ -118,7 +118,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative h-screen flex flex-col justify-between px-gutter pt-20 pb-28 md:pt-24 md:pb-36 overflow-hidden"
+      className="relative h-dvh flex flex-col justify-between px-gutter pt-20 pb-28 md:pt-24 md:pb-36 overflow-hidden"
     >
       {/* WebGL noise — desktop only */}
       {window.innerWidth >= 768 && (
