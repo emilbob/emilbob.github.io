@@ -25,7 +25,7 @@ const GROUPS = [
         category: "Obsidian Plugin · DevOps",
         year: "2026",
         tag: "OBSIDIAN",
-        desc: "An Obsidian plugin that draws a repository's CI/CD automation as a directed graph — parsed fresh from the workflow files themselves on every open, so it can never drift from reality the way a hand-drawn diagram does. Published in Obsidian's community plugin directory, Emil's first shipped, publicly installable product.",
+        desc: "An Obsidian plugin that draws a repository's CI/CD automation as a directed graph — parsed fresh from the workflow files themselves on every open, so it can never drift from reality the way a hand-drawn diagram does. Published in Obsidian's community plugin directory with 100+ downloads.",
         stack: ["JavaScript", "Obsidian API", "GitHub Actions", "SVG", "Node.js"],
         github: "https://github.com/emilbob/obsidian-automation-graph",
         live: "https://community.obsidian.md/plugins/automation-graph",
