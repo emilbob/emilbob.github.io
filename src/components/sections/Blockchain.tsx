@@ -97,7 +97,7 @@ export default function Blockchain() {
     <section ref={sectionRef} id="blockchain" className="bg-ash px-gutter py-section border-t border-smoke overflow-hidden">
       <div className="max-w-[1600px] mx-auto">
 
-        <span ref={numRef} className="font-mono text-5xl text-mist tabular-nums leading-none select-none block mb-6" style={{ opacity: 0 }}>---</span>
+        <span ref={numRef} className="font-mono text-5xl text-mist/70 tabular-nums leading-none select-none block mb-6" style={{ opacity: 0 }}>---</span>
 
         <span ref={labelRef} className="font-mono text-3xl text-electric mb-10 block">
           &gt; ________

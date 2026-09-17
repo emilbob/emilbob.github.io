@@ -238,7 +238,7 @@ export default function Projects() {
         {/* Header */}
         <span
           ref={numRef}
-          className="font-mono text-5xl text-mist tabular-nums leading-none select-none block mb-6"
+          className="font-mono text-5xl text-mist/70 tabular-nums leading-none select-none block mb-6"
           style={{ opacity: 0 }}
         >
           ---

@@ -152,7 +152,7 @@ export default function Hero() {
       >
         <span
           ref={numRef}
-          className="font-mono text-5xl text-mist tabular-nums leading-none mb-3 md:mb-4"
+          className="font-mono text-5xl text-mist/70 tabular-nums leading-none mb-3 md:mb-4"
           style={{ opacity: 0 }}
         >
           ---
