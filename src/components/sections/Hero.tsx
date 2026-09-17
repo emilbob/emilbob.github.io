@@ -190,7 +190,7 @@ export default function Hero() {
           moves the element by the exact pixel amount given. */}
       <div
         ref={scrollRef}
-        className="relative z-10 border-t border-smoke/60 pt-3 md:pt-6 -translate-y-10 md:-translate-y-8"
+        className="relative z-10 border-t border-smoke/60 pt-3 md:pt-6 -translate-y-14 md:-translate-y-8"
         style={{ opacity: 0 }}
       >
         <p className="font-sans text-base sm:text-xl md:text-4xl text-mist max-w-lg leading-relaxed">
