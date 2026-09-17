@@ -148,7 +148,7 @@ export default function Hero() {
       {/* Name block */}
       <div
         ref={nameBlockRef}
-        className="relative z-10 flex flex-col flex-1 justify-center pt-0 pb-6 md:pb-16"
+        className="relative z-10 flex flex-col flex-1 justify-start md:justify-center pt-8 md:pt-0 pb-6 md:pb-16"
       >
         <span
           ref={numRef}
@@ -190,7 +190,7 @@ export default function Hero() {
           moves the element by the exact pixel amount given. */}
       <div
         ref={scrollRef}
-        className="relative z-10 border-t border-smoke/60 pt-3 md:pt-6 -translate-y-2 md:-translate-y-8"
+        className="relative z-10 border-t border-smoke/60 pt-3 md:pt-6 -translate-y-6 md:-translate-y-8"
         style={{ opacity: 0 }}
       >
         <p className="font-sans text-base sm:text-xl md:text-4xl text-mist max-w-lg leading-relaxed">
@@ -198,11 +198,11 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* SCROLL cue — absolute within this h-screen section at bottom-8, the
-          same offset the fixed ChatBot launcher uses, so the two read as one
-          row instead of SCROLL sitting wherever the text row's own height
-          happens to land it. */}
-      <div ref={scrollCueRef} className="absolute z-10 bottom-8 right-gutter" style={{ opacity: 0 }}>
+      {/* SCROLL cue — vertically centered with the fixed ChatBot launcher, not just
+          sharing its bottom-8 offset: the launcher's border+padding make it a 58px
+          box while this is bare 32px text, so matching bottom edges alone left their
+          centers 13px apart. bottom-[45px] (32 + 13) aligns the centers instead. */}
+      <div ref={scrollCueRef} className="absolute z-10 bottom-[45px] right-gutter" style={{ opacity: 0 }}>
         <MagneticEl>
           <button
             onClick={() =>
