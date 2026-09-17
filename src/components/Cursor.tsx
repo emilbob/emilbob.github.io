@@ -14,8 +14,13 @@ export default function Cursor() {
   const previewRef  = useRef<HTMLDivElement>(null)
   const wooshRef    = useRef<HTMLDivElement>(null)
   const [preview, setPreview] = useState<PreviewState>({ visible: false, gradient: '', label: '' })
+  // No real pointer on touch devices, so there's nothing to follow — the dot/ring/coords/woosh
+  // hint would otherwise sit frozen at their initial center-screen position, a fixed high-z-index
+  // overlay on top of real content.
+  const [isTouch] = useState(() => !window.matchMedia('(pointer: fine)').matches)
 
   useEffect(() => {
+    if (isTouch) return
     const dot   = dotRef.current!
     const ring  = ringRef.current!
     const coord = coordRef.current!
@@ -92,7 +97,7 @@ export default function Cursor() {
       window.removeEventListener('click', onFirstClick)
       gsap.ticker.remove(tick)
     }
-  }, [])
+  }, [isTouch])
 
   // Animate preview in/out
   useEffect(() => {
@@ -115,6 +120,8 @@ export default function Cursor() {
       })
     }
   }, [preview.visible])
+
+  if (isTouch) return null
 
   return (
     <>

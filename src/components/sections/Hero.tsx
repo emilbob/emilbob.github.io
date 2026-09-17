@@ -118,7 +118,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative h-screen flex flex-col justify-between px-gutter pt-10 pb-20 md:pt-24 md:pb-36 overflow-hidden"
+      className="relative h-screen flex flex-col justify-between px-gutter pt-20 pb-28 md:pt-24 md:pb-36 overflow-hidden"
     >
       {/* WebGL noise — desktop only */}
       {window.innerWidth >= 768 && (
@@ -193,7 +193,7 @@ export default function Hero() {
         className="relative z-10 border-t border-smoke/60 pt-3 md:pt-6 -translate-y-2 md:-translate-y-8"
         style={{ opacity: 0 }}
       >
-        <p className="font-sans text-xl md:text-4xl text-mist max-w-lg leading-relaxed">
+        <p className="font-sans text-base sm:text-xl md:text-4xl text-mist max-w-lg leading-relaxed">
           Building autonomous agent systems, and the memory and proofs that make them trustworthy.
         </p>
       </div>

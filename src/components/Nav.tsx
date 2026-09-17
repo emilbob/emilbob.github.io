@@ -53,7 +53,7 @@ export default function Nav() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 px-gutter py-7 flex items-center justify-between border-b transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-gutter py-4 md:py-7 flex items-center justify-between border-b transition-all duration-500 ${
         scrolled
           ? 'border-smoke/60 bg-void/90 backdrop-blur-md'
           : 'border-transparent'
