@@ -16,8 +16,9 @@ export default function Cursor() {
   const [preview, setPreview] = useState<PreviewState>({ visible: false, gradient: '', label: '' })
   // No real pointer on touch devices, so there's nothing to follow — the dot/ring/coords/woosh
   // hint would otherwise sit frozen at their initial center-screen position, a fixed high-z-index
-  // overlay on top of real content.
-  const [isTouch] = useState(() => !window.matchMedia('(pointer: fine)').matches)
+  // overlay on top of real content. Also skip it below the site's own mobile breakpoint (a desktop
+  // browser resized narrow still has a real mouse, but this is a mobile-only layout at that width).
+  const [isTouch] = useState(() => !window.matchMedia('(pointer: fine)').matches || window.innerWidth < 768)
 
   useEffect(() => {
     if (isTouch) return
