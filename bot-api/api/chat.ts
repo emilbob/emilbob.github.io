@@ -90,6 +90,15 @@ Stack: Rust, schnorrkel, VRF, WebAssembly, React, TypeScript.
 Code: https://github.com/emilbob/Infinite-deck-poker-using-VRFs · Demo: https://infinite-deck-poker.onrender.com
 
 ### BLOCKCHAIN
+**Held** (2026) — Buyer protection for stablecoin payments on Tempo. The buyer pays
+with a plain transfer from their own wallet; the chain holds the money until
+delivery, and a per-merchant arbiter contract can only release it to the merchant
+or refund the buyer. Nobody, including Held, can send it anywhere else. Each order
+gets its own virtual address, so payments match orders at no cost. Built for the
+Colosseum Crypto World's Fair, Tempo track.
+Stack: Solidity, Foundry, Tempo, TypeScript, React, viem.
+Code: https://github.com/emilbob/held · Demo: https://getheld.xyz
+
 **Substrate Node Probe** (2026) — Connects to a Substrate node over WebSocket and
 proves which chain it is actually serving by checking the genesis hash before
 trusting anything else, then reports identity, peer count, sync state and block

@@ -76,6 +76,17 @@ const GROUPS = [
     projects: [
       {
         index: "006",
+        title: "HELD",
+        category: "Solidity · Payments",
+        year: "2026",
+        tag: "TEMPO",
+        desc: "Buyer protection for stablecoin payments on Tempo. The buyer pays with a plain transfer from their own wallet; the chain holds the money until delivery, and a per-merchant arbiter contract can only release it to the merchant or refund the buyer — nobody, including Held, can send it anywhere else. Every order gets its own virtual address, so payments match orders at zero cost. Built for the Colosseum Crypto World's Fair, Tempo track.",
+        stack: ["Solidity", "Foundry", "Tempo", "TypeScript", "React", "viem"],
+        github: "https://github.com/emilbob/held",
+        live: "https://getheld.xyz",
+      },
+      {
+        index: "007",
         title: "SUBSTRATE NODE PROBE",
         category: "Rust · Substrate",
         year: "2026",
@@ -86,7 +97,7 @@ const GROUPS = [
         live: "https://emilbob.github.io/substrate-node-probe/",
       },
       {
-        index: "007",
+        index: "008",
         title: "SOLANA DATA AGGREGATOR",
         category: "Rust · Blockchain",
         year: "2025",
@@ -97,7 +108,7 @@ const GROUPS = [
         live: "https://solana-data-aggregator.onrender.com",
       },
       {
-        index: "008",
+        index: "009",
         title: "CROWDFUNDING ICP",
         category: "Smart Contract · ICP",
         year: "2024",
@@ -108,7 +119,7 @@ const GROUPS = [
         live: "https://crowdfunding-icp-beryl.vercel.app/",
       },
       {
-        index: "009",
+        index: "010",
         title: "PICASO TOKEN",
         category: "Solidity · DeFi",
         year: "2026",
@@ -124,7 +135,7 @@ const GROUPS = [
     label: "CREATIVE WEB",
     projects: [
       {
-        index: "010",
+        index: "011",
         title: "OBSCURA",
         category: "WebGL · Experience",
         year: "2026",
@@ -135,7 +146,7 @@ const GROUPS = [
         live: "https://obscura-emilbobs-projects.vercel.app",
       },
       {
-        index: "011",
+        index: "012",
         title: "ABYSS",
         category: "WebGL · Experience",
         year: "2026",
